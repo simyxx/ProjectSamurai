@@ -7,7 +7,9 @@ public class PlayerMovement : MonoBehaviour
     
     private float horizontal;
     private Animator animator;
-    private bool isFacingRight = true;
+    private SpriteRenderer sprite;
+    private enum MovementState { idle, running, jumping, falling }
+
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpPower = 9f;
     [SerializeField] private Rigidbody2D rb;
@@ -18,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -29,16 +32,8 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpPower); //animator.SetTrigger("Running");
         }
 
-        if (horizontal != 0f)
-        {
-            animator.SetBool("running", true);
-        }
-        else 
-        {
-            animator.SetBool("running", false);
-        }
-
-        Flip();
+        
+        UpdateAnimState();
     }
 
     private void FixedUpdate()
@@ -51,14 +46,30 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
-    private void Flip()
+    private void UpdateAnimState()
     {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
-        {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
+
+        MovementState state;
+        if (horizontal > 0f){
+            state = MovementState.running;
+            sprite.flipX = false;
         }
+        else if (horizontal < 0f){
+            state = MovementState.running;
+            sprite.flipX = true;
+        }
+        else {
+            state = MovementState.idle;
+        }
+
+        if (rb.velocity.y > .1f){
+            state = MovementState.jumping;
+        }
+        else if (rb.velocity.y < -.1f){
+            state = MovementState.falling;
+        }
+
+        animator.SetInteger("state", (int)state);
+
     }
 }
