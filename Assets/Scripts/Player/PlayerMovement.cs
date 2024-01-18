@@ -15,7 +15,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-    
+    public float slopeRayLength = 0.5f;
+    private bool isSliding;
 
     private void Start()
     {
@@ -25,11 +26,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
         
+        horizontal = Input.GetAxisRaw("Horizontal");
+
         if (Input.GetButtonDown("Jump") && IsGrounded() || Input.GetKeyDown(KeyCode.W) && IsGrounded())
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower); //animator.SetTrigger("Running");
+            rb.velocity = new Vector2(rb.velocity.x, jumpPower); 
         }
 
         
@@ -72,4 +74,5 @@ public class PlayerMovement : MonoBehaviour
         animator.SetInteger("state", (int)state);
 
     }
+    
 }
