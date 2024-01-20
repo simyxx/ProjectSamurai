@@ -15,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-    public float slopeRayLength = 0.5f;
     private void Start()
     {
         animator = GetComponent<Animator>();
