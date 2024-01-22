@@ -1,16 +1,20 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
     public GameObject meleeAttackHitbox;
+    [SerializeField] private Rigidbody2D rb;
+    private Animator animator;
     private bool playerIsFacingRight = true;
     private Vector2 hitboxLocalPosition;
     private Vector2 attackDirection;
-    private bool isAttacking = false; // Nově přidaná proměnná pro sledování stavu útoku
+    private bool isAttacking = false;
 
     void Start()
     {
         hitboxLocalPosition = meleeAttackHitbox.transform.localPosition;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -42,9 +46,10 @@ public class PlayerAttack : MonoBehaviour
     void Attack()
     {
         meleeAttackHitbox.SetActive(true);
-        isAttacking = true; // Nastavení stavu útoku na true
+        isAttacking = true; 
 
-        // Spustit animaci změny pozice hitboxu nebo další akce pro útok
+        rb.bodyType = RigidbodyType2D.Static;
+        animator.SetBool("attack", true);
 
         Invoke("DeactivateHitbox", 0.5f);
     }
@@ -52,7 +57,9 @@ public class PlayerAttack : MonoBehaviour
     void DeactivateHitbox()
     {
         meleeAttackHitbox.SetActive(false);
-        isAttacking = false; // Nastavení stavu útoku na false po deaktivaci hitboxu
+        isAttacking = false; 
+        animator.SetBool("attack", false);
+        rb.bodyType = RigidbodyType2D.Dynamic;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -62,5 +69,10 @@ public class PlayerAttack : MonoBehaviour
             Destroy(other.gameObject);
             Debug.Log("Enemy zemřel");
         }
+    }
+    
+    IEnumerator StopMoving()
+    {
+        yield return new WaitForSeconds(1f);
     }
 }
