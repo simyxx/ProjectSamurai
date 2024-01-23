@@ -48,10 +48,9 @@ public class PlayerAttack : MonoBehaviour
         meleeAttackHitbox.SetActive(true);
         isAttacking = true; 
 
-        rb.bodyType = RigidbodyType2D.Static;
         animator.SetBool("attack", true);
 
-        Invoke("DeactivateHitbox", 0.5f);
+        Invoke("DeactivateHitbox", 0.27f);
     }
 
     void DeactivateHitbox()
@@ -59,20 +58,15 @@ public class PlayerAttack : MonoBehaviour
         meleeAttackHitbox.SetActive(false);
         isAttacking = false; 
         animator.SetBool("attack", false);
-        rb.bodyType = RigidbodyType2D.Dynamic;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (isAttacking && other.CompareTag("Enemy"))
+        if (isAttacking && other.gameObject.CompareTag("Enemy"))
         {
             Destroy(other.gameObject);
             Debug.Log("Enemy zemřel");
         }
     }
     
-    IEnumerator StopMoving()
-    {
-        yield return new WaitForSeconds(1f);
-    }
 }
