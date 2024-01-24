@@ -2004,7 +2004,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.37724298, y: -0.113173425}
@@ -2240,10 +2240,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.37724298, y: -0.113173425}
+  m_Offset: {x: -0.4088766, y: -0.113173485}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2254,7 +2254,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4023925, y: 4.1125593}
+  m_Size: {x: 1.7652174, y: 4.1125593}
   m_EdgeRadius: 0
 --- !u!212 &944963981
 SpriteRenderer:
@@ -2630,10 +2630,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.37724298, y: -0.113173425}
+  m_Offset: {x: -0.3799092, y: -0.113173485}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2644,7 +2644,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4023925, y: 4.1125593}
+  m_Size: {x: 1.5793874, y: 4.1125593}
   m_EdgeRadius: 0
 --- !u!212 &993791403
 SpriteRenderer:
@@ -4597,10 +4597,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.37724298, y: -0.113173425}
+  m_Offset: {x: 0.47075826, y: -0.113173485}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4611,7 +4611,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4023925, y: 4.1125593}
+  m_Size: {x: 1.5894231, y: 4.1125593}
   m_EdgeRadius: 0
 --- !u!212 &1923774160
 SpriteRenderer:
@@ -5081,9 +5081,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 713263794451339430, guid: f42ef69392a23e643bf2726a64a0ea06, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1468819490070937291, guid: f42ef69392a23e643bf2726a64a0ea06, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189164632598150943, guid: f42ef69392a23e643bf2726a64a0ea06, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5091803
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189164632598150943, guid: f42ef69392a23e643bf2726a64a0ea06, type: 3}
+      propertyPath: m_Size.y
+      value: 4.255173
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189164632598150943, guid: f42ef69392a23e643bf2726a64a0ea06, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189164632598150943, guid: f42ef69392a23e643bf2726a64a0ea06, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.5220381
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189164632598150943, guid: f42ef69392a23e643bf2726a64a0ea06, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.2238605
       objectReference: {fileID: 0}
     - target: {fileID: 5577905976095512479, guid: f42ef69392a23e643bf2726a64a0ea06, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5123,6 +5147,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5577905976095512479, guid: f42ef69392a23e643bf2726a64a0ea06, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7577306557373584772, guid: f42ef69392a23e643bf2726a64a0ea06, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7577306557373584772, guid: f42ef69392a23e643bf2726a64a0ea06, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
