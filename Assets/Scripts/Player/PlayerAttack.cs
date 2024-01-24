@@ -32,7 +32,7 @@ public class PlayerAttack : MonoBehaviour
 
         attackDirection = playerIsFacingRight ? Vector2.right : Vector2.left;
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.LeftControl))
         {
             Attack();
         }
@@ -60,11 +60,11 @@ public class PlayerAttack : MonoBehaviour
         animator.SetBool("attack", false);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+      void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isAttacking && other.gameObject.CompareTag("Enemy"))
+        if (isAttacking && collision.collider.CompareTag("Enemy"))
         {
-            Destroy(other.gameObject);
+            Destroy(collision.gameObject);
             Debug.Log("Enemy zemřel");
         }
     }
