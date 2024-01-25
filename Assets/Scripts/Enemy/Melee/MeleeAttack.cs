@@ -110,8 +110,7 @@ public class MeleeAttack : MonoBehaviour
         {  
             // idealne misto zniceni jen vsechno pozastavit / prehrat animaci smrti a pozastavit vse
             playerAnim.SetTrigger("death");
-            player.bodyType = RigidbodyType2D.Static;
-            npc.bodyType = RigidbodyType2D.Static;
+   
             //Destroy(collision.gameObject);
             Debug.Log("Hráč zemřel");
         }
