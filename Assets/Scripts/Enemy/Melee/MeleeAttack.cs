@@ -5,6 +5,7 @@ public class MeleeAttack : MonoBehaviour
 {
     [SerializeField] GameObject meleeAttackHitbox;
     [SerializeField] Rigidbody2D player;
+    [SerializeField] Animator playerAnim;
     private Rigidbody2D npc;
     private Animator animator;
     private Vector2 hitboxLocalPosition;
@@ -108,7 +109,10 @@ public class MeleeAttack : MonoBehaviour
         if (isAttacking && collision.collider.CompareTag("Player"))
         {  
             // idealne misto zniceni jen vsechno pozastavit / prehrat animaci smrti a pozastavit vse
-            Destroy(collision.gameObject);
+            playerAnim.SetTrigger("death");
+            player.bodyType = RigidbodyType2D.Static;
+            npc.bodyType = RigidbodyType2D.Static;
+            //Destroy(collision.gameObject);
             Debug.Log("Hráč zemřel");
         }
     }

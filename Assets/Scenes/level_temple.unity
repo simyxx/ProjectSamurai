@@ -2415,6 +2415,11 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 8065522546371413518, guid: f42ef69392a23e643bf2726a64a0ea06, type: 3}
   m_PrefabInstance: {fileID: 2860982093550656704}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1072336157 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7232280002181168612, guid: f42ef69392a23e643bf2726a64a0ea06, type: 3}
+  m_PrefabInstance: {fileID: 2860982093550656704}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1104258340
 GameObject:
   m_ObjectHideFlags: 0
@@ -4572,11 +4577,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5577905976095512479, guid: f42ef69392a23e643bf2726a64a0ea06, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.08
+      value: -2.66
       objectReference: {fileID: 0}
     - target: {fileID: 5577905976095512479, guid: f42ef69392a23e643bf2726a64a0ea06, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.87
+      value: -0.46
       objectReference: {fileID: 0}
     - target: {fileID: 5577905976095512479, guid: f42ef69392a23e643bf2726a64a0ea06, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4631,6 +4636,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1072336153}
+    - target: {fileID: 3754386476207611539, guid: 595019f9a95610e4eba069a090d664ef, type: 3}
+      propertyPath: playerAnim
+      value: 
+      objectReference: {fileID: 1072336157}
     - target: {fileID: 4338965981183985458, guid: 595019f9a95610e4eba069a090d664ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.54
@@ -4675,6 +4684,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1072336153}
+    - target: {fileID: 5076266770373475698, guid: 595019f9a95610e4eba069a090d664ef, type: 3}
+      propertyPath: moveSpeed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
