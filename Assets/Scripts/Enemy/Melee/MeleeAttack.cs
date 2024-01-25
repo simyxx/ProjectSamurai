@@ -1,63 +1,98 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour
 {
-
     [SerializeField] GameObject meleeAttackHitbox;
     [SerializeField] Rigidbody2D player;
     private Rigidbody2D npc;
     private Animator animator;
-    private float rangeBtwCharacters;
     private Vector2 hitboxLocalPosition;
-    private Vector2 attackDirection;
+    private float rangeBtwCharactersX;
+    float npcPlatform;
+    float playerPlatform;
     private bool isAttacking = false;
-    private bool npcIsFacingRight = true;
 
-    // Start is called before the first frame update
     void Start()
     {
         npc = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        hitboxLocalPosition = meleeAttackHitbox.transform.localPosition;
+        hitboxLocalPosition = meleeAttackHitbox.transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        rangeBtwCharacters = Math.Abs(player.transform.position.x - npc.transform.position.x);
+        rangeBtwCharactersX = GetXRangeBetweenCharacters();
 
-        if (player.transform.position.x > npc.transform.position.x)
-        {
-            npcIsFacingRight = true;
-        }
-        else if (npc.transform.position.x < player.transform.position.x)
-        {
-            npcIsFacingRight = false;
-        }
+        MoveMeleeAttackHitbox();
 
-        attackDirection = npcIsFacingRight ? Vector2.right : Vector2.left;
-
-        if (rangeBtwCharacters < .3f)
+        if (rangeBtwCharactersX < .38f && OnSamePlatform())
         {
             Attack();
         }
     }
 
-    void LateUpdate()
+    void MoveMeleeAttackHitbox()
     {
-        meleeAttackHitbox.transform.localPosition = new Vector3(attackDirection.x * hitboxLocalPosition.x, hitboxLocalPosition.y, 0);
+        if (player.transform.position.x > npc.transform.position.x)
+        {
+            meleeAttackHitbox.transform.position = new Vector3(hitboxLocalPosition.x, hitboxLocalPosition.y, 0);
+        }
+        else if (player.transform.position.x < npc.transform.position.x)
+        {
+            meleeAttackHitbox.transform.position = new Vector3(-hitboxLocalPosition.x, hitboxLocalPosition.y, 0);
+        }
+    }
+
+    bool OnSamePlatform()
+    {
+        npcPlatform = GetPlatformOfObject(npc.transform.position.y);
+        playerPlatform = GetPlatformOfObject(player.transform.position.y);
+        if (playerPlatform == npcPlatform)
+        {
+            return true;
+        }
+        else 
+        {
+            return false;
+        }
+    }
+
+    float GetXRangeBetweenCharacters()
+    {
+        float playerX = Math.Abs(player.transform.position.x);
+        float npcX = Math.Abs(npc.transform.position.x);
+        if (playerX > npcX) 
+        {
+            return playerX - npcX;
+        }
+        else
+        {
+            return npcX - playerX;
+        } 
+    }
+
+    int GetPlatformOfObject(float yPositionOfObject)
+    {
+        if (yPositionOfObject < -1.68f)
+        {
+            return 0; // bot
+        }
+        else if (yPositionOfObject < 0f)
+        {
+            return 1; // mid
+        }
+        else 
+        {
+            return 2; // top
+        }      
     }
 
     void Attack()
     {
         meleeAttackHitbox.SetActive(true);
         isAttacking = true; 
-
         animator.SetBool("attack", true);
-
         Invoke("DeactivateHitbox", 0.27f);
     }
 
@@ -68,10 +103,11 @@ public class MeleeAttack : MonoBehaviour
         animator.SetBool("attack", false);
     }
 
-      void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (isAttacking && collision.collider.CompareTag("Player"))
-        {
+        {  
+            // idealne misto zniceni jen vsechno pozastavit / prehrat animaci smrti a pozastavit vse
             Destroy(collision.gameObject);
             Debug.Log("Hráč zemřel");
         }
