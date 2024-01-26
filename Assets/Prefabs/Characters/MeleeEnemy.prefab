@@ -113,6 +113,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6411997794256479631}
+  - {fileID: 1601558656120297698}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2744192678188395503
@@ -274,6 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meleeAttackHitbox: {fileID: 595028425254858198}
   player: {fileID: 0}
+  playerAnim: {fileID: 0}
 --- !u!114 &5076266770373475698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,4 +289,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 1
+  groundCheck: {fileID: 1601558656120297698}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  moveSpeed: 1.5
+  jumpHeight: 5
+--- !u!1 &8861383278165059969
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1601558656120297698}
+  m_Layer: 8
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1601558656120297698
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8861383278165059969}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.29, y: -2.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4338965981183985458}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
