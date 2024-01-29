@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Death
   - JumpRegister
+  - JumpRegisterL
+  - JumpRegisterR
   layers:
   - Default
   - TransparentFX

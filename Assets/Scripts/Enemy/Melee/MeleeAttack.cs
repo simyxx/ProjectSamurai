@@ -61,8 +61,8 @@ public class MeleeAttack : MonoBehaviour
 
     float GetXRangeBetweenCharacters()
     {
-        float playerX = Math.Abs(player.transform.position.x);
-        float npcX = Math.Abs(npc.transform.position.x);
+        float playerX = player.transform.position.x;
+        float npcX = npc.transform.position.x;
         if (playerX > npcX) 
         {
             return playerX - npcX;

@@ -12,6 +12,8 @@ public class MeleeMovement : MonoBehaviour
     private SpriteRenderer sprite;
     private float npcPlatform;
     private float playerPlatform;
+    private float playerY;
+    private float npcY;
 
     void Start()
     {
@@ -21,6 +23,9 @@ public class MeleeMovement : MonoBehaviour
 
     void Update()
     {
+        playerY = player.position.y;
+        npcY = npc.position.y;
+
         if (OnSamePlatform())
         {
             if (player.transform.position.x > npc.transform.position.x && IsGrounded())
@@ -36,10 +41,23 @@ public class MeleeMovement : MonoBehaviour
         }
         else 
         {
-            if (npcPlatform == 0)
+            if (npc.position.y < -1.44f) // npc je na spodni platforme, hrac muze byt jen vys 
             {
                 npc.velocity = new Vector2(moveSpeed * (-1f), npc.velocity.y);
-                sprite.flipX = true;
+                sprite.flipX = true; 
+            }
+            else if (npc.position.y < 0.8f) // npc je na prostredni platforme
+            {
+                if (playerY > npcY) // hrac je vys nez npc
+                {
+                    npc.velocity = new Vector2(moveSpeed, npc.velocity.y);
+                    sprite.flipX = false;
+                }
+                else 
+                {
+                    npc.velocity = new Vector2(-moveSpeed, npc.velocity.y);
+                    sprite.flipX = true;
+                }
             }
         }
 
@@ -47,9 +65,36 @@ public class MeleeMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("JumpRegister"))
+        if (collision.CompareTag("JumpRegister")) // skok z platforem na kopce
         {
             npc.velocity = new Vector2(npc.velocity.x, jumpHeight);
+        }
+        if (collision.CompareTag("JumpRegisterL")) // skok z leveho kopce na platformu
+        {
+            if (playerY < npcY)
+            {
+                npc.velocity = new Vector2(-moveSpeed, jumpHeight);
+                sprite.flipX = true;
+            }
+            else 
+            {
+                npc.velocity = new Vector2(moveSpeed, jumpHeight);
+                sprite.flipX = false;
+            }
+            
+        }
+        if (collision.CompareTag("JumpRegisterR")) // skok z praveho kopce na platformu
+        {
+            if (playerY < npcY)
+            {
+                npc.velocity = new Vector2(-moveSpeed, jumpHeight);
+                sprite.flipX = true;
+            }
+            else 
+            {
+                npc.velocity = new Vector2(-moveSpeed, jumpHeight + 1f);
+                sprite.flipX = false;
+            }
         }
     }
 
@@ -70,20 +115,6 @@ public class MeleeMovement : MonoBehaviour
         {
             return false;
         }
-    }
-
-    float GetYRangeBetweenCharacters()
-    {
-        float playerY = Math.Abs(player.transform.position.y);
-        float npcY = Math.Abs(npc.transform.position.y);
-        if (playerY > npcY) 
-        {
-            return playerY - npcY;
-        }
-        else
-        {
-            return npcY - playerY;
-        } 
     }
 
     int GetPlatformOfObject(float yPositionOfObject)
