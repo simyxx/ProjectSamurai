@@ -294,7 +294,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   moveSpeed: 1.5
-  jumpHeight: 5
+  jumpHeight: 6
 --- !u!1 &8861383278165059969
 GameObject:
   m_ObjectHideFlags: 0
