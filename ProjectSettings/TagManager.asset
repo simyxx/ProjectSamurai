@@ -9,6 +9,7 @@ TagManager:
   - JumpRegister
   - JumpRegisterL
   - JumpRegisterR
+  - JumpRegisterM
   layers:
   - Default
   - TransparentFX

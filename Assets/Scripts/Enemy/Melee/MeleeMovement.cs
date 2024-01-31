@@ -59,29 +59,28 @@ public class MeleeMovement : MonoBehaviour
                     sprite.flipX = true;
                 }
             }
+            else if (npc.position.y < 2.5f)
+            {
+                npc.velocity = new Vector2(moveSpeed, npc.velocity.y);
+            }
         }
 
+
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("JumpRegisterM") && playerY < npcY)
+        {
+            npc.AddForce(new Vector2(moveSpeed * 999999993f, 0));
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("JumpRegister")) // skok z platforem na kopce
+        if (collision.CompareTag("JumpRegister") && playerY > npcY) // skok z platforem na kopce
         {
             npc.velocity = new Vector2(npc.velocity.x, jumpHeight);
-        }
-        if (collision.CompareTag("JumpRegisterL")) // skok z leveho kopce na platformu
-        {
-            if (playerY < npcY)
-            {
-                npc.velocity = new Vector2(-moveSpeed, jumpHeight);
-                sprite.flipX = true;
-            }
-            else 
-            {
-                npc.velocity = new Vector2(moveSpeed, jumpHeight);
-                sprite.flipX = false;
-            }
-            
         }
         if (collision.CompareTag("JumpRegisterR")) // skok z praveho kopce na platformu
         {
@@ -95,6 +94,10 @@ public class MeleeMovement : MonoBehaviour
                 npc.velocity = new Vector2(-moveSpeed, jumpHeight + 1f);
                 sprite.flipX = false;
             }
+        }
+        if (collision.CompareTag("Death"))
+        {
+            Destroy(collision.gameObject);
         }
     }
 

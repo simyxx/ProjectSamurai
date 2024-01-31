@@ -2058,8 +2058,8 @@ GameObject:
   - component: {fileID: 741435807}
   - component: {fileID: 741435808}
   m_Layer: 0
-  m_Name: JumpRegister (1)
-  m_TagString: JumpRegister
+  m_Name: JumpRegisterM
+  m_TagString: JumpRegisterM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2073,7 +2073,7 @@ Transform:
   m_GameObject: {fileID: 741435806}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.44, y: 1.7, z: 0}
+  m_LocalPosition: {x: -4.976, y: -2.474, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2108,10 +2108,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.27980867}
+  m_Offset: {x: -0.054612037, y: 0.10954435}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2122,7 +2122,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.7596175}
+  m_Size: {x: 0.090775914, y: 0.4190887}
   m_EdgeRadius: 0
 --- !u!1 &771577702
 GameObject:
@@ -3715,8 +3715,8 @@ Transform:
   m_GameObject: {fileID: 1481634439}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1662059, y: -5.057382, z: 999}
-  m_LocalScale: {x: 16.9646, y: 1, z: 1}
+  m_LocalPosition: {x: -1.0078, y: -5.057382, z: 999}
+  m_LocalScale: {x: 22.92284, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1478469155}
@@ -4157,7 +4157,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.27980867}
+  m_Offset: {x: 0, y: -0.04691494}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4168,7 +4168,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.7596175}
+  m_Size: {x: 0.2, y: 0.10617026}
   m_EdgeRadius: 0
 --- !u!1 &1822138128
 GameObject:
@@ -4967,11 +4967,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5577905976095512479, guid: f42ef69392a23e643bf2726a64a0ea06, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.23
+      value: 10.22
       objectReference: {fileID: 0}
     - target: {fileID: 5577905976095512479, guid: f42ef69392a23e643bf2726a64a0ea06, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.12
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 5577905976095512479, guid: f42ef69392a23e643bf2726a64a0ea06, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5032,11 +5032,11 @@ PrefabInstance:
       objectReference: {fileID: 1072336157}
     - target: {fileID: 4338965981183985458, guid: 595019f9a95610e4eba069a090d664ef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.96
+      value: 10.85
       objectReference: {fileID: 0}
     - target: {fileID: 4338965981183985458, guid: 595019f9a95610e4eba069a090d664ef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: 1.18
       objectReference: {fileID: 0}
     - target: {fileID: 4338965981183985458, guid: 595019f9a95610e4eba069a090d664ef, type: 3}
       propertyPath: m_LocalPosition.z
