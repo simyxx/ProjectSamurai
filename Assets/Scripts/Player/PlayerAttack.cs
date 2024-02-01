@@ -1,10 +1,12 @@
 using System.Collections;
+using Unity.Burst.Intrinsics;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public GameObject meleeAttackHitbox;
-    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] GameObject meleeAttackHitbox;
+    [SerializeField] Rigidbody2D rb;
     private Animator animator;
     private bool playerIsFacingRight = true;
     private Vector2 hitboxLocalPosition;
@@ -60,12 +62,13 @@ public class PlayerAttack : MonoBehaviour
         animator.SetBool("attack", false);
     }
 
-      void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (isAttacking && collision.collider.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
-            Debug.Log("Enemy zemřel");
+            Animator enemyAnimator = collision.gameObject.GetComponent<Animator>();
+            enemyAnimator.SetTrigger("death");
+            Destroy(collision.gameObject, .5f);
         }
     }
     

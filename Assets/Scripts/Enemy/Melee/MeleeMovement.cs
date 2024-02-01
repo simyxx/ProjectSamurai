@@ -95,10 +95,6 @@ public class MeleeMovement : MonoBehaviour
                 sprite.flipX = false;
             }
         }
-        if (collision.CompareTag("Death"))
-        {
-            Destroy(collision.gameObject);
-        }
     }
 
     private bool IsGrounded()

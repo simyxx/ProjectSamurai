@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 6575983063444815618}
   - component: {fileID: 3754386476207611539}
   - component: {fileID: 5076266770373475698}
+  - component: {fileID: 2146143859501909557}
   m_Layer: 8
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -295,6 +296,18 @@ MonoBehaviour:
     m_Bits: 64
   moveSpeed: 1.5
   jumpHeight: 6
+--- !u!114 &2146143859501909557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108079839570028529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430a7c88d77be5249a719836aa1fda3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8861383278165059969
 GameObject:
   m_ObjectHideFlags: 0
