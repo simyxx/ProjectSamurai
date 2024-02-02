@@ -9,6 +9,7 @@ public class MeleeMovement : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float jumpHeight;
     private Rigidbody2D npc;
+    private Animator animator;
     private SpriteRenderer sprite;
     private float npcPlatform;
     private float playerPlatform;
@@ -19,12 +20,15 @@ public class MeleeMovement : MonoBehaviour
     {
         npc = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
         playerY = player.position.y;
         npcY = npc.position.y;
+
+        UpdateAnimState();
 
         if (OnSamePlatform())
         {
@@ -68,6 +72,31 @@ public class MeleeMovement : MonoBehaviour
 
     }
 
+    void UpdateAnimState()
+    {
+
+        int state = 0;
+        if (npc.velocity.x > 0f)
+        {
+            sprite.flipX = false;
+        }
+        else if (npc.velocity.x < 0f)
+        {
+            sprite.flipX = true;
+        }
+
+
+        if (npc.velocity.y > .1f)
+        {
+            state = 1;
+        }
+        else if (npc.velocity.y < -.1f)
+        {
+            state = 2;
+        }
+
+        animator.SetInteger("state", state);
+    }
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("JumpRegisterM") && playerY < npcY)

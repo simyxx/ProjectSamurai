@@ -295,7 +295,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   moveSpeed: 1.5
-  jumpHeight: 6
+  jumpHeight: 6.5
 --- !u!114 &2146143859501909557
 MonoBehaviour:
   m_ObjectHideFlags: 0
