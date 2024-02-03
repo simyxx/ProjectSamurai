@@ -20,6 +20,7 @@ public class CameraController : MonoBehaviour
         float screenWidth = Screen.width;
         float screenHeight = Screen.height;
         float screenRatio = screenWidth / screenHeight;
+        Debug.Log(screenRatio);
         mainCamera.orthographicSize = targetOrthographicSize / screenRatio;
     }
 }
