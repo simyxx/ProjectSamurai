@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\Game\GameManager.cs" />
     <Compile Include="Assets\Scripts\Menu\SettingsMenu.cs" />
+    <Compile Include="Assets\Scripts\Game\CameraController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Enemy\Melee\MeleeLife.cs" />
   </ItemGroup>
