@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float targetOrthographicSize = 5f; // Zadávejte hodnotu podle potřeby
+    public float targetOrthographicSize = 5f; 
 
     void Start()
     {
@@ -20,7 +20,6 @@ public class CameraController : MonoBehaviour
         float screenWidth = Screen.width;
         float screenHeight = Screen.height;
         float screenRatio = screenWidth / screenHeight;
-        Debug.Log(screenRatio);
         mainCamera.orthographicSize = targetOrthographicSize / screenRatio;
     }
 }

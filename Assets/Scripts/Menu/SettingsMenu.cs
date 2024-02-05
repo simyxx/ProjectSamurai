@@ -21,6 +21,11 @@ public class SettingsMenu : MonoBehaviour
         int currentResIndex = 0;
         for (int i = 0; i < resolutions.Length; i++)
         {
+            //float helper = resolutions[i].height / 10;
+            //if (resolutions[i].width / helper == 0)
+            //{
+            //    continue;
+            //}
             string option = resolutions[i].width + " x " +resolutions[i].height;   
             options.Add(option); 
 
