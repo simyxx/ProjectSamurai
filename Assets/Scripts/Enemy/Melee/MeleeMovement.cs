@@ -24,53 +24,81 @@ public class MeleeMovement : MonoBehaviour
     }
 
     void Update()
+{
+    playerY = player.position.y;
+    npcY = npc.position.y;
+
+    UpdateAnimState();
+
+    if (OnSamePlatform())
     {
-        playerY = player.position.y;
-        npcY = npc.position.y;
-
-        UpdateAnimState();
-
-        if (OnSamePlatform())
+        if (player.transform.position.x > npc.transform.position.x && IsGrounded())
         {
-            if (player.transform.position.x > npc.transform.position.x && IsGrounded())
-            {
-                npc.velocity = new Vector2 (moveSpeed, npc.velocity.y);
-                sprite.flipX = false;
-            }
-            else if (player.transform.position.x < npc.transform.position.x && IsGrounded()) 
-            {
-                npc.velocity = new Vector2 (moveSpeed * (-1f), npc.velocity.y);
-                sprite.flipX = true;
-            }
+            npc.velocity = new Vector2(moveSpeed, npc.velocity.y);
+            sprite.flipX = false;
         }
-        else 
+        else if (player.transform.position.x < npc.transform.position.x && IsGrounded())
         {
-            if (npc.position.y < -1.44f) // npc je na spodni platforme, hrac muze byt jen vys 
-            {
-                npc.velocity = new Vector2(moveSpeed * (-1f), npc.velocity.y);
-                sprite.flipX = true; 
-            }
-            else if (npc.position.y < 0.8f) // npc je na prostredni platforme
-            {
-                if (playerY > npcY) // hrac je vys nez npc
-                {
-                    npc.velocity = new Vector2(moveSpeed, npc.velocity.y);
-                    sprite.flipX = false;
-                }
-                else 
-                {
-                    npc.velocity = new Vector2(-moveSpeed, npc.velocity.y);
-                    sprite.flipX = true;
-                }
-            }
-            else if (npc.position.y < 2.5f)
+            npc.velocity = new Vector2(moveSpeed * (-1f), npc.velocity.y);
+            sprite.flipX = true;
+        }
+    }
+    else
+    {
+        if (npc.position.y < -1.44f)
+        {
+            npc.velocity = new Vector2(moveSpeed * (-1f), npc.velocity.y);
+            sprite.flipX = true;
+        }
+        else if (npc.position.y < 0.8f)
+        {
+            if (playerY > npcY)
             {
                 npc.velocity = new Vector2(moveSpeed, npc.velocity.y);
+                sprite.flipX = false;
+            }
+            else if (playerY < npcY && IsGrounded())
+            {
+                npc.velocity = new Vector2(-moveSpeed, npc.velocity.y);
+                sprite.flipX = true;
+            }
+            else
+            {
+                npc.velocity = new Vector2(moveSpeed, npc.velocity.y);
+                sprite.flipX = false;
             }
         }
-
-
+        else if (npc.position.y < 2.5f && IsGrounded())
+        {
+            npc.velocity = new Vector2(moveSpeed, npc.velocity.y);
+        }
     }
+}
+
+void OnTriggerEnter2D(Collider2D collision)
+{
+    if (collision.CompareTag("JumpRegister") && playerY > npcY + 0.1f) // skok z platforem na kopce
+    {
+        npc.velocity = new Vector2(0f, jumpHeight);
+    }
+    else if (collision.CompareTag("JumpRegisterR") && playerY > npcY && IsGrounded()) // skok z praveho kopce na platformu
+    {
+        npc.velocity = new Vector2(-moveSpeed, jumpHeight + 1f);
+        sprite.flipX = false;
+    }
+    else if (collision.CompareTag("JumpRegisterM") && playerY < npcY && IsGrounded()) // skok z kopce doleva na stredni nebo dolni kopce
+    {
+        if (npc.velocity.x > 0f) // Zkontroluj, zda NPC skáče doprava
+        {
+            npc.velocity = new Vector2(0f, npc.velocity.y); // Zastav pohyb v x-ovém směru
+        }
+        else
+        {
+            npc.velocity = new Vector2(-moveSpeed, npc.velocity.y);
+            sprite.flipX = true;
+        }
+    }
+}
 
     void UpdateAnimState()
     {
@@ -97,34 +125,7 @@ public class MeleeMovement : MonoBehaviour
 
         animator.SetInteger("state", state);
     }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("JumpRegisterM") && playerY < npcY)
-        {
-            npc.AddForce(new Vector2(moveSpeed * 999999993f, 0));
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("JumpRegister") && playerY > npcY) // skok z platforem na kopce
-        {
-            npc.velocity = new Vector2(npc.velocity.x, jumpHeight);
-        }
-        if (collision.CompareTag("JumpRegisterR")) // skok z praveho kopce na platformu
-        {
-            if (playerY < npcY)
-            {
-                npc.velocity = new Vector2(-moveSpeed, jumpHeight);
-                sprite.flipX = true;
-            }
-            else 
-            {
-                npc.velocity = new Vector2(-moveSpeed, jumpHeight + 1f);
-                sprite.flipX = false;
-            }
-        }
-    }
+    
 
     private bool IsGrounded()
     {

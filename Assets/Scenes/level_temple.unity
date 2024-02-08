@@ -2112,7 +2112,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.054612037, y: 0.10954435}
@@ -3723,7 +3723,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.8584906, g: 0.51428443, b: 0.51428443, a: 1}
+  m_Color: {r: 0.8584906, g: 0.51428443, b: 0.51428443, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5047,11 +5047,11 @@ PrefabInstance:
       objectReference: {fileID: 1415410283}
     - target: {fileID: 5577905976095512479, guid: f42ef69392a23e643bf2726a64a0ea06, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.82
+      value: 10.3
       objectReference: {fileID: 0}
     - target: {fileID: 5577905976095512479, guid: f42ef69392a23e643bf2726a64a0ea06, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.13
+      value: -0.46
       objectReference: {fileID: 0}
     - target: {fileID: 5577905976095512479, guid: f42ef69392a23e643bf2726a64a0ea06, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5112,11 +5112,11 @@ PrefabInstance:
       objectReference: {fileID: 1072336157}
     - target: {fileID: 4338965981183985458, guid: 595019f9a95610e4eba069a090d664ef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.73
+      value: 19.68
       objectReference: {fileID: 0}
     - target: {fileID: 4338965981183985458, guid: 595019f9a95610e4eba069a090d664ef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: 0.19
       objectReference: {fileID: 0}
     - target: {fileID: 4338965981183985458, guid: 595019f9a95610e4eba069a090d664ef, type: 3}
       propertyPath: m_LocalPosition.z
