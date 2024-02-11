@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6575983063444815618}
   - component: {fileID: 7904657033411815591}
   - component: {fileID: 1079951418230747472}
+  - component: {fileID: 4310651615416468695}
   m_Layer: 8
   m_Name: ArcherEnemy
   m_TagString: Enemy
@@ -79,8 +80,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: cc3a2993ee772874886fbabb4c9a177b, type: 3}
-  m_Color: {r: 0.14901961, g: 0.058823533, b: 0.0627451, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 5fa126ddd5ec51a4481c08a420d35fd2, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -122,18 +123,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.67821425, y: -0.449067}
+  m_Offset: {x: 0.28399786, y: -0.21545547}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.33, y: 5.77}
+    oldSize: {x: 2.62, y: 4.68}
     newSize: {x: 4.33, y: 5.77}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2846035, y: 4.7843447}
+  m_Size: {x: 0.963394, y: 3.9075248}
   m_EdgeRadius: 0
 --- !u!50 &6575983063444815618
 Rigidbody2D:
@@ -197,6 +198,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4310651615416468695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108079839570028529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 002497dacc109b4458ca24b1c8114212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 1.5
 --- !u!1 &4205708557094412485
 GameObject:
   m_ObjectHideFlags: 0

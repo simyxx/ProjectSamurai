@@ -10,6 +10,7 @@ TagManager:
   - JumpRegisterL
   - JumpRegisterR
   - JumpRegisterM
+  - ArcherStop
   layers:
   - Default
   - TransparentFX

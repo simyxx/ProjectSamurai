@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Enemy\Archer\ArrowScript.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLife.cs" />
     <Compile Include="Assets\Scripts\Enemy\Melee\MeleeAttack.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Archer\ArcherMovement.cs" />
     <Compile Include="Assets\Scripts\Enemy\Melee\MeleeMovement.cs" />
     <Compile Include="Assets\Scripts\Menu\SceneManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAttack.cs" />
