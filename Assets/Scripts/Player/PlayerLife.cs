@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerLife : MonoBehaviour
@@ -8,17 +6,13 @@ public class PlayerLife : MonoBehaviour
     {
         if (other.CompareTag("Death"))
         {
-            Die(); // Zavolání funkce pro zpracování smrti postavy
+            Die(); 
         }
     }
 
     void Die()
     {
-        // Tady můžete přidat kód, který bude proveden při smrti postavy
-        // Například restartování levelu, zobrazení smrti, atd.
         Debug.Log("Postava umřela!");
-        
-        // Pro ukázku, můžete deaktivovat (skrýt) objekt postavy:
         gameObject.SetActive(false);
     }
 }
