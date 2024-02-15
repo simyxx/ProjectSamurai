@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class ArcherMovement : MonoBehaviour
@@ -8,20 +9,22 @@ public class ArcherMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private bool isWalking;
-    // Start is called before the first frame update
+    private float timer;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        isWalking = true;
+        timer = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (isWalking)
+        timer += Time.deltaTime;
+
+        if (timer < 1.5f)
         {
-            if (rb.position.x > 15f)
+            if (rb.position.x > 12f)
             {
                 rb.velocity = new Vector2(-movementSpeed, rb.velocity.y);
             }
@@ -32,16 +35,10 @@ public class ArcherMovement : MonoBehaviour
         }
         else 
         {
+            rb.velocity = Vector2.zero;
             animator.SetBool("onPosition", true);
             animator.SetBool("shoot", true);
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("ArcherStop"))
-        {
-            isWalking = false;
-        }
-    }
 }
