@@ -17,9 +17,6 @@ public class ArrowScript : MonoBehaviour
 
         Vector3 dir = player.transform.position - transform.position;
         rb.velocity = new Vector2(dir.x, dir.y).normalized * force;
-
-        float rot = Mathf.Atan2(-dir.y, -dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rot + 90);
     }
 
     // Update is called once per frame
