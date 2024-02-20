@@ -81,15 +81,15 @@ body {
     width: 100%;
     justify-content: center;
     align-items: flex-start;
-    margin: 0 5%;
+    margin: 0;
 }
 
 .column {
     padding: 10px;
-    margin: 0 2%;
+    margin: 0 3%;
     flex: 1;
     font-size: 50px;
-    text-align: left;
+    text-align: justify;
     
 }
 
@@ -140,6 +140,9 @@ body {
 @media (max-width: 550px) {
     .image-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        margin: 5%;
+        margin-left: 7%;
+        text-align: center;
     }
 
     .row{
@@ -147,7 +150,9 @@ body {
     }
 
     .column{
-        font-size: 30px;
+        font-size: x-large;
+        text-align: justify;
+        margin-right: 10%;
     }
     
     .bgcontainer .bg1 {
@@ -161,6 +166,25 @@ body {
     .bgcontainer .bg4 {background: none;}
     .bgcontainer .bg5 {background: none;}
 
+    .mail {
+        font-size: large;
+        margin-left: 5%;
+    }
+    .iframewrapper{
+        position: relative;
+        padding-bottom: 56.25%;
+        /* 16:9 */
+        padding-top: 25px;
+        height: 0;
+    }
+    
+    .iframewrapper iframe{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 }
 
 @media (min-width: 1921px){
