@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour
 {
-    [SerializeField] GameObject meleeAttackHitbox;
-    [SerializeField] Rigidbody2D player;
-    [SerializeField] Animator playerAnim;
+    private GameObject meleeAttackHitbox;
+    private  Rigidbody2D player;
+    private Animator playerAnim;
     private Rigidbody2D npc;
     private Animator animator;
     private Vector2 hitboxLocalPosition;
@@ -16,6 +16,9 @@ public class MeleeAttack : MonoBehaviour
 
     void Start()
     {
+        meleeAttackHitbox = GameObject.Find("MeleeAttack");
+        playerAnim = GameObject.Find("Player").GetComponent<Animator>();
+        player = GameObject.Find("Player").GetComponent<Rigidbody2D>();
         npc = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         hitboxLocalPosition = meleeAttackHitbox.transform.position;

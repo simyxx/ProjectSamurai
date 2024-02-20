@@ -3,11 +3,12 @@ using System;
 
 public class MeleeMovement : MonoBehaviour
 {
-    [SerializeField] Rigidbody2D player;
+    
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] float moveSpeed;
     [SerializeField] float jumpHeight;
+    private  Rigidbody2D player;
     private Rigidbody2D npc;
     private Animator animator;
     private SpriteRenderer sprite;
@@ -21,6 +22,7 @@ public class MeleeMovement : MonoBehaviour
         npc = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        player = GameObject.Find("Player").GetComponent<Rigidbody2D>();
     }
 
     void Update()
