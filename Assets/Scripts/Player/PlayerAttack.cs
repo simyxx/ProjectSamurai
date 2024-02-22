@@ -7,6 +7,7 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] GameObject meleeAttackHitbox;
     [SerializeField] Rigidbody2D rb;
+    private EnemySpawner enemies;
     private Animator animator;
     private bool playerIsFacingRight = true;
     private Vector2 hitboxLocalPosition;
@@ -17,6 +18,7 @@ public class PlayerAttack : MonoBehaviour
     {
         hitboxLocalPosition = meleeAttackHitbox.transform.localPosition;
         animator = GetComponent<Animator>();
+        enemies = EnemySpawner.Instance;
     }
 
     void Update()
@@ -69,6 +71,7 @@ public class PlayerAttack : MonoBehaviour
             Animator enemyAnimator = collision.gameObject.GetComponent<Animator>();
             enemyAnimator.SetTrigger("death");
             Destroy(collision.gameObject, .5f);
+            enemies.SpawnMelee();
         }
     }
     

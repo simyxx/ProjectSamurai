@@ -163,4 +163,9 @@ void OnTriggerEnter2D(Collider2D collision)
             return 2; // top
         }      
     }
+
+    public void StopSpawn()
+    {
+        animator.SetBool("spawn", true);
+    }
 }

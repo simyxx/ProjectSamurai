@@ -31,6 +31,7 @@ public class ArcherMovement : MonoBehaviour
             else 
             {
                 rb.velocity = new Vector2(movementSpeed, rb.velocity.y);
+                rb.transform.Rotate(0, 180, 0);
             }
         }
         else 

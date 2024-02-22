@@ -7,6 +7,19 @@ public class EnemySpawner : MonoBehaviour
     private float timer;
     private bool afterMelee;
 
+    public static EnemySpawner Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
         timer = 0;
@@ -47,12 +60,22 @@ public class EnemySpawner : MonoBehaviour
                 spawn = new Vector3(Random.Range(10.5f, 14.8f), 1.2f, 0f);
             } break;
         }
-        Debug.Log("spawn");
         Instantiate(melee, spawn, Quaternion.identity);
+
     }
     
     public void SpawnArcher()
     {
-        
+        int platform = Random.Range(1, 3);
+        Vector3 spawn = Vector3.zero;
+        if (platform == 1)
+        {
+            spawn = new Vector3(Random.Range(22f, 22.75f), 0.48f, 0f);
+        }
+        else 
+        {
+            spawn = new Vector3(Random.Range(3f, 3.75f), 0f, 0f);
+        }
+        Instantiate(archer, spawn, Quaternion.identity);
     }
 }
