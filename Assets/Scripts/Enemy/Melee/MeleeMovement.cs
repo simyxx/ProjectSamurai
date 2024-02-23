@@ -37,12 +37,10 @@ public class MeleeMovement : MonoBehaviour
         if (player.transform.position.x > npc.transform.position.x && IsGrounded())
         {
             npc.velocity = new Vector2(moveSpeed, npc.velocity.y);
-            sprite.flipX = false;
         }
         else if (player.transform.position.x < npc.transform.position.x && IsGrounded())
         {
             npc.velocity = new Vector2(moveSpeed * (-1f), npc.velocity.y);
-            sprite.flipX = true;
         }
     }
     else
@@ -50,24 +48,20 @@ public class MeleeMovement : MonoBehaviour
         if (npc.position.y < -1.44f)
         {
             npc.velocity = new Vector2(moveSpeed * (-1f), npc.velocity.y);
-            sprite.flipX = true;
         }
         else if (npc.position.y < 0.8f)
         {
             if (playerY > npcY)
             {
                 npc.velocity = new Vector2(moveSpeed, npc.velocity.y);
-                sprite.flipX = false;
             }
             else if (playerY < npcY && IsGrounded())
             {
                 npc.velocity = new Vector2(-moveSpeed, npc.velocity.y);
-                sprite.flipX = true;
             }
             else
             {
                 npc.velocity = new Vector2(moveSpeed, npc.velocity.y);
-                sprite.flipX = false;
             }
         }
         else if (npc.position.y < 2.5f && IsGrounded())
@@ -86,7 +80,6 @@ void OnTriggerEnter2D(Collider2D collision)
     else if (collision.CompareTag("JumpRegisterR") && playerY > npcY && IsGrounded()) // skok z praveho kopce na platformu
     {
         npc.velocity = new Vector2(-moveSpeed, jumpHeight + 1f);
-        sprite.flipX = false;
     }
     else if (collision.CompareTag("JumpRegisterM") && playerY < npcY && IsGrounded()) // skok z kopce doleva na stredni nebo dolni kopce
     {
@@ -97,25 +90,21 @@ void OnTriggerEnter2D(Collider2D collision)
         else
         {
             npc.velocity = new Vector2(-moveSpeed, npc.velocity.y);
-            sprite.flipX = true;
         }
     }
 }
 
     void UpdateAnimState()
     {
-
         int state = 0;
         if (npc.velocity.x > 0f)
         {
-            sprite.flipX = false;
+            npc.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
         else if (npc.velocity.x < 0f)
         {
-            sprite.flipX = true;
+            npc.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
         }
-
-
         if (npc.velocity.y > .1f)
         {
             state = 1;

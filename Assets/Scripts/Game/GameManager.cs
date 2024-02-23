@@ -15,6 +15,12 @@ public class GameManager : MonoBehaviour
     {
         pause = false;
     }
+
+    void Awake()
+    {
+        ResumeGame();
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))

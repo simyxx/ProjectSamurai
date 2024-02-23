@@ -8,7 +8,6 @@ public class MeleeAttack : MonoBehaviour
     private Animator playerAnim;
     private Rigidbody2D npc;
     private Animator animator;
-    private Vector2 hitboxLocalPosition;
     private float rangeBtwCharactersX;
     float npcPlatform;
     float playerPlatform;
@@ -21,30 +20,14 @@ public class MeleeAttack : MonoBehaviour
         player = GameObject.Find("Player").GetComponent<Rigidbody2D>();
         npc = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        hitboxLocalPosition = meleeAttackHitbox.transform.position;
     }
 
     void Update()
     {
         rangeBtwCharactersX = GetXRangeBetweenCharacters();
-
-        MoveMeleeAttackHitbox();
-
         if (rangeBtwCharactersX < .38f && OnSamePlatform())
         {
             Attack();
-        }
-    }
-
-    void MoveMeleeAttackHitbox()
-    {
-        if (player.transform.position.x > npc.transform.position.x)
-        {
-            meleeAttackHitbox.transform.position = new Vector3(hitboxLocalPosition.x, hitboxLocalPosition.y, 0);
-        }
-        else if (player.transform.position.x < npc.transform.position.x)
-        {
-            meleeAttackHitbox.transform.position = new Vector3(-hitboxLocalPosition.x, hitboxLocalPosition.y, 0);
         }
     }
 
@@ -111,10 +94,10 @@ public class MeleeAttack : MonoBehaviour
     {
         if (isAttacking && collision.collider.CompareTag("Player"))
         {  
-            // idealne misto zniceni jen vsechno pozastavit / prehrat animaci smrti a pozastavit vse
+            // ubere se hracovi jeden ze tri zivotu
             playerAnim.SetTrigger("death");
    
-            //Destroy(collision.gameObject);
+            // kdyz bude nula zivotu
             Debug.Log("Hráč zemřel");
         }
     }
