@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         ResumeGame();
+        PlayerScore.totalScore = 0;
     }
 
     void Update()

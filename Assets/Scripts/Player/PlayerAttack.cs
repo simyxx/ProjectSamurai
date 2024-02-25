@@ -2,11 +2,13 @@ using System.Collections;
 using Unity.Burst.Intrinsics;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] GameObject meleeAttackHitbox;
     [SerializeField] Rigidbody2D rb;
+    public TMPro.TMP_Text scoreText;
     private Animator animator;
     private bool playerIsFacingRight = true;
     private Vector2 hitboxLocalPosition;
@@ -16,6 +18,7 @@ public class PlayerAttack : MonoBehaviour
     {
         hitboxLocalPosition = meleeAttackHitbox.transform.localPosition;
         animator = GetComponent<Animator>();
+        scoreText.text = "SCORE: " + PlayerScore.totalScore;
     }
     void Update()
     {
@@ -42,9 +45,7 @@ public class PlayerAttack : MonoBehaviour
     {
         meleeAttackHitbox.SetActive(true);
         isAttacking = true; 
-
         animator.SetBool("attack", true);
-
         Invoke("DeactivateHitbox", 0.27f);
     }
     void DeactivateHitbox()
@@ -60,6 +61,8 @@ public class PlayerAttack : MonoBehaviour
             Animator enemyAnimator = collision.gameObject.GetComponent<Animator>();
             enemyAnimator.SetTrigger("death");
             Destroy(collision.gameObject, .5f);
+            PlayerScore.totalScore += 1;
+            scoreText.text = "SCORE: " + PlayerScore.totalScore;
         }
     }
 }
