@@ -5,7 +5,6 @@ public class MeleeAttack : MonoBehaviour
 {
     private GameObject meleeAttackHitbox;
     private  Rigidbody2D player;
-    private Animator playerAnim;
     private Rigidbody2D npc;
     private Animator animator;
     private float rangeBtwCharactersX;
@@ -16,7 +15,6 @@ public class MeleeAttack : MonoBehaviour
     void Start()
     {
         meleeAttackHitbox = GameObject.Find("MeleeAttack");
-        playerAnim = GameObject.Find("Player").GetComponent<Animator>();
         player = GameObject.Find("Player").GetComponent<Rigidbody2D>();
         npc = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -95,10 +93,10 @@ public class MeleeAttack : MonoBehaviour
         if (isAttacking && collision.collider.CompareTag("Player"))
         {  
             // ubere se hracovi jeden ze tri zivotu
-            playerAnim.SetTrigger("death");
+            PlayerLife.hp -= 1;
    
             // kdyz bude nula zivotu
-            Debug.Log("Hráč zemřel");
+            Debug.Log("Hráč dostal dmg");
         }
     }
 }

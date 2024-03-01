@@ -1,18 +1,43 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerLife : MonoBehaviour
 {
+    public static int hp;
+    private Animator anim;
+
+    void Start()
+    {
+        hp = 3;
+        anim = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        if (hp == 0)
+        {
+            Die();
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Death"))
         {
-            Die(); 
+            hp = 3;
         }
     }
 
     void Die()
     {
-        Debug.Log("Postava umřela!");
-        gameObject.SetActive(false);
+        anim.SetTrigger("death");
+        Destroy(gameObject, 1f);
+        SaveData data = new SaveData();
+        if (PlayerScore.totalScore > data.highscore)
+        {
+            data.highscore = PlayerScore.totalScore;
+            SaveManager saveManager = new SaveManager();
+            saveManager.SaveGame();
+        }
     }
 }

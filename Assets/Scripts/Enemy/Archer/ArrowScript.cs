@@ -37,6 +37,7 @@ public class ArrowScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            PlayerLife.hp -= 1;
             Destroy(gameObject);
         }
     }
