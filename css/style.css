@@ -12,7 +12,7 @@ body {
     width: 100%;
     height: 50%;
     overflow: hidden;
-    display: block;
+    
 }
 
 .bgcontainer .bg {
@@ -22,7 +22,7 @@ body {
     width: 100%;
     height: 100%;
     background-size: 120%;
-    background-position: center;
+    background-position:center;
     background-repeat: no-repeat;
 }
 
@@ -126,7 +126,7 @@ body {
     padding-bottom: 56.25%;
     /* 16:9 */
     padding-top: 25px;
-    height: 0;
+    margin: 0;
 }
 
 .iframewrapper iframe{
@@ -154,17 +154,23 @@ body {
         text-align: justify;
         margin-right: 10%;
     }
-    
-    .bgcontainer .bg1 {
-        background-image: url(../img/mobilhero.png);
-        background-repeat: no-repeat;
-        margin: 0;
-        padding: 0;
+
+    .bgcontainer{
+        display: block;
+        height: auto;
     }
-    .bgcontainer .bg2 {background: none;}
-    .bgcontainer .bg3 {background: none;}
-    .bgcontainer .bg4 {background: none;}
-    .bgcontainer .bg5 {background: none;}
+    
+    .bgcontainer {
+        background-image: url(../img/mobilhero.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+    .bgcontainer .bg0 {display: none;}
+    .bgcontainer .bg1 {display: none;}
+    .bgcontainer .bg2 {display: none;}
+    .bgcontainer .bg3 {display: none;}
+    .bgcontainer .bg4 {display: none;}
 
     .mail {
         font-size: large;
