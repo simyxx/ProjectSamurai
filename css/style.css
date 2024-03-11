@@ -21,8 +21,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: 120%;
-    background-position:center;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
@@ -52,6 +51,9 @@ body {
     
 }
 
+.mobilhero{
+    display: none;
+}
 
 .container {
     color: rgb(255, 0, 47);
@@ -121,22 +123,6 @@ body {
     font-size: 25px;
 }
 
-.iframewrapper{
-    position: relative;
-    padding-bottom: 56.25%;
-    /* 16:9 */
-    padding-top: 25px;
-    margin: 0;
-}
-
-.iframewrapper iframe{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
 @media (max-width: 550px) {
     .image-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -154,46 +140,25 @@ body {
         text-align: justify;
         margin-right: 10%;
     }
-
-    .bgcontainer{
-        display: block;
-        height: auto;
-    }
     
-    .bgcontainer {
-        background-image: url(../img/mobilhero.png);                    
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 100%;
+    .bgcontainer {                   
+        display: none;
     }
-    .bgcontainer .bg0 {display: none;}
-    .bgcontainer .bg1 {display: none;}
-    .bgcontainer .bg2 {display: none;}
-    .bgcontainer .bg3 {display: none;}
-    .bgcontainer .bg4 {display: none;}
 
     .mail {
         font-size: large;
         margin-left: 5%;
     }
-    .iframewrapper{
-        position: relative;
-        padding-bottom: 56.25%;
-        /* 16:9 */
-        padding-top: 25px;
-        height: 0;
-    }
-    
-    .iframewrapper iframe{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
 
     .container h2{
         font-size: 40px;
+    }
+
+    .mobilhero{
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
     }
 }
 
