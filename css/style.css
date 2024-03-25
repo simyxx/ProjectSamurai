@@ -154,10 +154,12 @@ body {
         font-size: 40px;
     }
 
-    .mobilhero{
+    .mobilhero {
         display: block;
-        max-width: 100%;
-        height: auto;
+        position: relative;
+        max-width: 100%; /* Set maximum width to 100% */
+        width: auto;
+        height: auto; /* Maintain aspect ratio */
         margin: 0 auto;
     }
 }
