@@ -5614,8 +5614,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 937387467}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: MainMenuButton
+        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+        m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

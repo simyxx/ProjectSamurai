@@ -34,4 +34,10 @@ public class SceneController : MonoBehaviour
             // Optionally, you can load a default scene or handle it in another way.
         }
     }
+
+    public void ExitGame()
+    {
+        previousScene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene("menu_main");
+    }
 }
