@@ -133,6 +133,19 @@ body {
     background-size: cover; 
 }
 
+.fancybox-button {
+    color: rgb(255, 0, 47); 
+    background-color: inherit;
+}
+
+.fancybox-button:hover{
+    color: #54000a;
+}
+
+.fancybox-bg {
+    background-color: #1801033a; 
+}
+
 @media (min-width: 2500px) {
     .bg {
         background-size: contain; 
