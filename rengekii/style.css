@@ -24,7 +24,10 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 }
-
+::selection {
+    background-color: #ffbd1b; 
+    color: #300005; 
+}
 .bgcontainer .bg1 { 
     background-image: url(img/2500/bg1.png); 
     z-index: 4; 
@@ -132,7 +135,6 @@ body {
     background: url('path/to/your/hero-image.jpg') no-repeat center center; 
     background-size: cover; 
 }
-
 .fancybox-button {
     color: rgb(255, 0, 47); 
     background-color: inherit;
@@ -145,7 +147,6 @@ body {
 .fancybox-bg {
     background-color: #1801033a; 
 }
-
 @media (min-width: 2500px) {
     .bg {
         background-size: contain; 
